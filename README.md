@@ -44,6 +44,7 @@ In case of questions / suggestions about the Miria Can Wait patch, contact here:
 If `sfall` headers need to be updated in future:
    - Download sfall headers from the sfall Modders Pack: https://sourceforge.net/projects/sfall/
    - Copy all files from the `archive:scripting_docs\headers` into this project: `scripts_src\sfall\`
+   - Update `scripts_src\sfall\readme.txt` according to the new sfall headers version.
 
 ## Fallout 2 Restoration Project, updated <a href="#"><img align="right" src="extra/bin/fallout2_logo.png" width="35%" alt="Fallout 2 logo"/></a>
 
