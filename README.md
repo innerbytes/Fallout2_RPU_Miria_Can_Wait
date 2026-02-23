@@ -12,7 +12,7 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
 2. This intallation instruction assumes that your Fallout 2 game with RPU is installed in `C:\Games\Fallout 2\` directory. Update the path accordingly if it differs.
 3. Clone this github repository (for example into `c:\Projects\Fallout2_RPU_Miria_Can_Wait` directory).
 4. Download `compile.exe` and `parser.dll` from sfall-team/sslc releases:
-    - https://github.com/sfall-team/sslc/releases
+    - Can take this version, or later: https://github.com/sfall-team/sslc/releases/tag/2026-02-07-11-20-26
     - Place both files in the same folder (e.g. `C:\Tools\`).
 5. Compile the patch using commands in PowerShell 7:
     -  `cd c:\Projects\Fallout2_RPU_Miria_Can_Wait\scripts_src\modoc`
