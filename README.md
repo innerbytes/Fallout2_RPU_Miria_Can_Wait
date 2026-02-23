@@ -29,7 +29,7 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
     - Open `C:\Games\Fallout 2\ddraw.ini` and confirm under [Misc]: `UseFileSystemOverride=1` (Should already be 1 in a standard RPU install)
 9. Enable the Miria Can Wait feature:
     - Edit `C:\Games\Fallout 2\mods\rpu.ini` and add in the end: `miria_can_wait=1`
-10. That's it. Now when you marry Miria and join you in your squad, she can be asked to wait, same as any other companion.
+10. That's it. Now when you marry Miria and join her in your squad, she can be asked to wait, same as any other companion.
 
 ## Fallout 2 Restoration Project, updated <a href="#"><img align="right" src="extra/bin/fallout2_logo.png" width="35%" alt="Fallout 2 logo"/></a>
 
