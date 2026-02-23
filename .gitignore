@@ -32,5 +32,9 @@ extra/bin/*
 extra/inno/Output
 extra/inno/release
 extra/inno/translations
-scripts_src/sfall
+
+# Do not ignore in the Miria Can Wait patch, so can be easily applied
+# Need to update those files manually if the sfall version needs to be updated
+# scripts_src/sfall
+
 dat2.list
