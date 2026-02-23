@@ -3,6 +3,11 @@
 When this patch is applied, Miria can be told to wait at her current location, just like other party NPCs (Sulik, Cassidy, etc.). The player can then return and ask her to rejoin the party.
 This prevents Miria to be killed in hard battles. This patch does not extend any other functionality of Miria, only the above described one.
 
+### Prerequisites:
+- Windows 10 or 11
+- git installed (https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
+- PowerShell 7 installed (https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
+
 ### How to apply:
 
 1. This patch is tested with the latest RPU for the moment: `v2.4.34`, so please install first this version of the RPU, following all the installation instructions:
@@ -10,30 +15,30 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
     - https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/tag/v2.4.34
     - This patch is not guaranteed to work with other versions of RPU until tested, but it can.
     - Applying this patch does not require to start a new Fallout 2 game. The current save, made with Fallout 2 RPU, will work.
-2. This intallation instruction assumes that your Fallout 2 game with RPU is installed in `C:\Games\Fallout 2\` directory. Update the path accordingly if it differs.
-3. Clone this github repository (for example into `c:\Projects\Fallout2_RPU_Miria_Can_Wait` directory).
+
+2. Clone this github repository (in this example we will use `c:\Projects\` directory, update the path accordingly, if you use a different one).
     - In Git or Powershell commamnd line:
       - `cd c:\Projects`
       - `git clone https://github.com/innerbytes/Fallout2_RPU_Miria_Can_Wait.git`
-5. Download `compile.exe` and `parser.dll` from sfall-team/sslc releases:
-    - Can take this version, or later: https://github.com/sfall-team/sslc/releases/tag/2026-02-07-11-20-26
-    - Place both files in the same folder (e.g. `C:\Tools\`).
-6. Compile the patch using commands in PowerShell 7:
-    -  `cd c:\Projects\Fallout2_RPU_Miria_Can_Wait\scripts_src\modoc`
-    -  `C:\Tools\compile.exe -p -l -O2 -s -q -n mcmiria.ssl -o mcmiria.int`
-7. Make a backup of your Fallout 2 `C:\Games\Fallout 2\data\` directory for the case something goes wrong.
-8. Apply the patch to your Fallout 2 RPU installation, running those Powershell 7 commands:
-   ```poweshell
-     mkdir "C:\Games\Fallout 2\data\scripts" 2>nul
-     mkdir "C:\Games\Fallout 2\data\text\english\dialog" 2>nul
-     copy scripts_src\modoc\mcmiria.int "C:\Games\Fallout 2\data\scripts\mcmiria.int"
-     copy data\text\english\dialog\mcmiria.msg "C:\Games\Fallout 2\data\text\english\dialog\mcmiria.msg"
-   ```
-9. Verify ddraw.ini
-    - Open `C:\Games\Fallout 2\ddraw.ini` and confirm under [Misc]: `UseFileSystemOverride=1` (Should already be 1 in a standard RPU install)
-10. Enable the Miria Can Wait feature:
-    - Edit `C:\Games\Fallout 2\mods\rpu.ini` and add in the end: `miria_can_wait=1`
-11. That's it. Now when you marry Miria and join her in your squad, she can be asked to wait, same as any other companion.
+
+3. In PowerShell 7, change to the patch directory and rub `build.ps`:
+```powershell
+cd c:\Projects\Fallout2_RPU_Miria_Can_Wait
+.\build.ps1
+```
+
+4. Before proceeding with the next step, it's recommended to make a backup of your Fallout 2 game installation directory for the case something goes wrong (or at least `data` directory within).
+
+5. In PowerShell 7, run `install.ps1` and follow the instructions. You will need to select the path to Fallout 2 with RPU installed in the dialog.
+```powershell
+cd c:\Projects\Fallout2_RPU_Miria_Can_Wait
+.\install.ps1
+``` 
+
+6. Enable the Miria Can Wait feature:
+    - In your Fallout 2 game installation folder, edit `mods\rpu.ini` and add in the end: `miria_can_wait=1`
+
+7. That's it. Now when you marry Miria and join her in your squad, she can be asked to wait, same as any other companion.
 
 ### Contacts
 
@@ -42,10 +47,29 @@ In case of questions / suggestions about the Miria Can Wait patch, contact here:
 
 ### For the developers
 
-If `sfall` headers need to be updated in future:
+The instructions below is only for the mod programmers. Please ignore them, if you just want to play the game with Miria Can Wait patch. Use the How To Apply section above.
+
+#### If `sfall` headers need to be updated in future:
    - Download sfall headers from the sfall Modders Pack: https://sourceforge.net/projects/sfall/
    - Copy all files from the `archive:scripting_docs\headers` into this project: `scripts_src\sfall\`
    - Update `scripts_src\sfall\readme.txt` according to the new sfall headers version.
+
+#### Applying the patch manually:
+
+1. This intallation instruction assumes that your Fallout 2 game with RPU is installed in `C:\Games\Fallout 2\` directory. Update the path accordingly if it differs.
+2.  Download `compile.exe` and `parser.dll` from sfall-team/sslc releases:
+    - Can take this version, or later: https://github.com/sfall-team/sslc/releases/tag/2026-02-07-11-20-26
+    - Place both files in the same folder (e.g. `C:\Tools\`).
+3. Compile the patch using commands in PowerShell 7:
+    -  `cd c:\Projects\Fallout2_RPU_Miria_Can_Wait\scripts_src\modoc`
+    -  `C:\Tools\compile.exe -p -l -O2 -s -q -n mcmiria.ssl -o mcmiria.int`
+5. Apply the patch to your Fallout 2 RPU installation, running those Powershell 7 commands (msg here is copied for english only, add commands for other languages):
+   ```poweshell
+     mkdir "C:\Games\Fallout 2\data\scripts" 2>nul
+     mkdir "C:\Games\Fallout 2\data\text\english\dialog" 2>nul
+     copy scripts_src\modoc\mcmiria.int "C:\Games\Fallout 2\data\scripts\mcmiria.int"
+     copy data\text\english\dialog\mcmiria.msg "C:\Games\Fallout 2\data\text\english\dialog\mcmiria.msg"
+   ```
 
 ## Fallout 2 Restoration Project, updated <a href="#"><img align="right" src="extra/bin/fallout2_logo.png" width="35%" alt="Fallout 2 logo"/></a>
 
