@@ -47,7 +47,7 @@ In case of questions / suggestions about the Miria Can Wait patch, contact here:
 
 ### For the developers
 
-The instructions below is only for the mod programmers. Please ignore them, if you just want to play the game with Miria Can Wait patch. Use the How To Apply section above.
+The instructions below is only for the mod programmers. Please ignore them, if you just want to play the game with Miria Can Wait patch. Use the [How To Apply](#how-to-apply) section above instead.
 
 #### If `sfall` headers need to be updated in future:
    - Download sfall headers from the sfall Modders Pack: https://sourceforge.net/projects/sfall/
