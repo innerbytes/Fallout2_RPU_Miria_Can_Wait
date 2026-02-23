@@ -14,7 +14,7 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
 
 ### How to install from the Released package
   
-1. Download the mod package from Nexus, unpack to your local drive, and follow the `readme.txt` inside.
+1. Download the mod package from one of the links below, unpack to your local drive, and follow the `readme.txt` inside.
     - Download from https://github.com/innerbytes/Fallout2_RPU_Miria_Can_Wait/releases/
     - Or from Nexus https://www.nexusmods.com/fallout2/mods/164?tab=files
 
