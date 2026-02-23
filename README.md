@@ -11,25 +11,27 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
     - This patch is not guaranteed to work with other versions of RPU until tested, but it can.
 2. This intallation instruction assumes that your Fallout 2 game with RPU is installed in `C:\Games\Fallout 2\` directory. Update the path accordingly if it differs.
 3. Clone this github repository (for example into `c:\Projects\Fallout2_RPU_Miria_Can_Wait` directory).
-4. Download `compile.exe` and `parser.dll` from sfall-team/sslc releases:
+    - `cd c:\Projects`
+    - `git clone https://github.com/innerbytes/Fallout2_RPU_Miria_Can_Wait.git`
+5. Download `compile.exe` and `parser.dll` from sfall-team/sslc releases:
     - Can take this version, or later: https://github.com/sfall-team/sslc/releases/tag/2026-02-07-11-20-26
     - Place both files in the same folder (e.g. `C:\Tools\`).
-5. Compile the patch using commands in PowerShell 7:
+6. Compile the patch using commands in PowerShell 7:
     -  `cd c:\Projects\Fallout2_RPU_Miria_Can_Wait\scripts_src\modoc`
     -  `C:\Tools\compile.exe -p -l -O2 -s -q -n mcmiria.ssl -o mcmiria.int`
-6. Make a backup of your Fallout 2 `C:\Games\Fallout 2\data\` directory for the case something goes wrong.
-7. Apply the patch to your Fallout 2 RPU installation, running those Powershell 7 commands:
+7. Make a backup of your Fallout 2 `C:\Games\Fallout 2\data\` directory for the case something goes wrong.
+8. Apply the patch to your Fallout 2 RPU installation, running those Powershell 7 commands:
    ```poweshell
      mkdir "C:\Games\Fallout 2\data\scripts" 2>nul
      mkdir "C:\Games\Fallout 2\data\text\english\dialog" 2>nul
      copy scripts_src\modoc\mcmiria.int "C:\Games\Fallout 2\data\scripts\mcmiria.int"
      copy data\text\english\dialog\mcmiria.msg "C:\Games\Fallout 2\data\text\english\dialog\mcmiria.msg"
    ```
-8. Verify ddraw.ini
+9. Verify ddraw.ini
     - Open `C:\Games\Fallout 2\ddraw.ini` and confirm under [Misc]: `UseFileSystemOverride=1` (Should already be 1 in a standard RPU install)
-9. Enable the Miria Can Wait feature:
+10. Enable the Miria Can Wait feature:
     - Edit `C:\Games\Fallout 2\mods\rpu.ini` and add in the end: `miria_can_wait=1`
-10. That's it. Now when you marry Miria and join her in your squad, she can be asked to wait, same as any other companion.
+11. That's it. Now when you marry Miria and join her in your squad, she can be asked to wait, same as any other companion.
 
 ## Fallout 2 Restoration Project, updated <a href="#"><img align="right" src="extra/bin/fallout2_logo.png" width="35%" alt="Fallout 2 logo"/></a>
 
