@@ -5,16 +5,20 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
 
 ### Prerequisites:
 - Windows 10 or 11
-- git installed (https://git-scm.com/install/)
-- PowerShell 7 installed (https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
-
-### How to apply:
-
-1. This patch is tested with the latest RPU for the moment: `v2.4.34`, so please install first this version of the RPU, following all the installation instructions:
+- Fallout 2 with RPU installed. This patch is tested with the latest RPU for the moment: `v2.4.34`, so please install first this version of the RPU, following all the installation instructions:
     - https://github.com/BGforgeNet/Fallout2_Restoration_Project?tab=readme-ov-file#installation 
     - https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/tag/v2.4.34
     - This patch is not guaranteed to work with other versions of RPU until tested, but it can.
     - Applying this patch does not require to start a new Fallout 2 game. The current save, made with Fallout 2 RPU, will work.
+- PowerShell 7 installed (https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
+
+### How to install from Nexus
+  
+1. Download the mod package from Nexus, unpack to your local drive, and follow the `readme.txt` inside: https://www.nexusmods.com/fallout2/mods/164?tab=files
+
+#### How to install from GitHub
+
+1. Make sure you have installed Git (https://git-scm.com/install/)
 
 2. Clone this github repository (in this example we will use `c:\Projects\` directory, update the path accordingly, if you use a different one).
     - In Git or Powershell commamnd line:
