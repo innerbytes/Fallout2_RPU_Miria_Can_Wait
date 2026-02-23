@@ -16,7 +16,7 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
   
 1. Download the mod package from Nexus, unpack to your local drive, and follow the `readme.txt` inside: https://www.nexusmods.com/fallout2/mods/164?tab=files
 
-#### How to install from GitHub
+### How to install from GitHub
 
 1. Make sure you have installed Git (https://git-scm.com/install/)
 
