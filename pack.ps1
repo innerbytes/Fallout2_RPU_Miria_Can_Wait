@@ -120,15 +120,18 @@ INSTALLATION
   2. Extract the zip and navigate to the miria_can_wait folder. For example:
        cd "C:\path\to\miria_can_wait"
 
-  3. Run the installer:
+  3. (Recommended) Back up your Fallout 2 game installation folder before
+     proceeding, so you can easily revert if needed.
+
+  4. Run the installer:
        .\install.ps1
 
-  4. A folder selection dialog will appear — select your Fallout 2 game folder
+  5. A folder selection dialog will appear — select your Fallout 2 game folder
      (the one that contains fallout2.exe).
 
-  5. The script will copy the necessary files and show you any remaining steps.
+  6. The script will copy the necessary files and show you any remaining steps.
 
-  6. After installation, open mods\rpu.ini in your Fallout 2 game folder
+  7. After installation, open mods\rpu.ini in your Fallout 2 game folder
      and add the following line at the end:
        miria_can_wait=1
 
