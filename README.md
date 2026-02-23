@@ -39,6 +39,12 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
 In case of questions / suggestions about the Miria Can Wait patch, contact here: 
 - https://innerbytes.com/#about
 
+### For the developers
+
+If `sfall` headers need to be updated in future:
+   - Download sfall headers from the sfall Modders Pack: https://sourceforge.net/projects/sfall/
+   - Copy all files from the `archive:scripting_docs\headers` into this project: `scripts_src\sfall\`
+
 ## Fallout 2 Restoration Project, updated <a href="#"><img align="right" src="extra/bin/fallout2_logo.png" width="35%" alt="Fallout 2 logo"/></a>
 
 [![Build status](https://github.com/BGforgeNet/Fallout2_Restoration_Project/workflows/build/badge.svg)](https://github.com/BGforgeNet/Fallout2_Restoration_Project/actions?query=workflow%3Abuild)
