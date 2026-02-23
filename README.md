@@ -8,7 +8,7 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
 - Fallout 2 with RPU installed. This patch is tested with the latest RPU for the moment: `v2.4.34`, so please install first this version of the RPU, following all the installation instructions:
     - https://github.com/BGforgeNet/Fallout2_Restoration_Project?tab=readme-ov-file#installation 
     - https://github.com/BGforgeNet/Fallout2_Restoration_Project/releases/tag/v2.4.34
-    - This patch is not guaranteed to work with other versions of RPU until tested, but it can.
+    - This patch is not guaranteed to work with other versions of RPU until tested, but it might.
     - Applying this patch does not require to start a new Fallout 2 game. The current save, made with Fallout 2 RPU, will work.
 - PowerShell 7 installed (https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
 
