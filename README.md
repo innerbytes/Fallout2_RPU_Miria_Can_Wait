@@ -5,7 +5,7 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
 
 ### Prerequisites:
 - Windows 10 or 11
-- git installed (https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
+- git installed (https://git-scm.com/install/)
 - PowerShell 7 installed (https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows)
 
 ### How to apply:
