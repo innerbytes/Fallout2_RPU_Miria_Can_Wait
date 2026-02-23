@@ -43,23 +43,6 @@ function Select-Fallout2Folder {
 }
 
 # ---------------------------------------------------------------------------
-# Helper: Validate the chosen folder.
-# Returns a list of problems (empty = valid).
-# ---------------------------------------------------------------------------
-function Test-Fallout2Folder ([string]$Path) {
-    $problems = @()
-
-    if (-not (Test-Path (Join-Path $Path 'fallout2.exe'))) {
-        $problems += "'fallout2.exe' was not found in the selected folder."
-    }
-    if (-not (Test-Path (Join-Path $Path 'mods' 'rpu.ini'))) {
-        $problems += "'mods\rpu.ini' was not found — RPU does not appear to be installed."
-    }
-
-    return $problems
-}
-
-# ---------------------------------------------------------------------------
 # Step 0: Keep asking until a valid folder is chosen or user cancels.
 # ---------------------------------------------------------------------------
 $gameDir = $null
@@ -74,7 +57,14 @@ while ($true) {
         exit 1
     }
 
-    [array]$problems = Test-Fallout2Folder $selected
+    # Validate the chosen folder.
+    $problems = [System.Collections.Generic.List[string]]::new()
+    if (-not (Test-Path (Join-Path $selected 'fallout2.exe'))) {
+        $problems.Add("'fallout2.exe' was not found in the selected folder.")
+    }
+    if (-not (Test-Path (Join-Path $selected 'mods' 'rpu.ini'))) {
+        $problems.Add("'mods\rpu.ini' was not found — RPU does not appear to be installed.")
+    }
 
     if ($problems.Count -eq 0) {
         $gameDir = $selected
