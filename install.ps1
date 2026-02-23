@@ -62,6 +62,9 @@ while ($true) {
     if (-not (Test-Path (Join-Path $selected 'fallout2.exe'))) {
         $problems.Add("'fallout2.exe' was not found in the selected folder.")
     }
+    if (-not (Test-Path (Join-Path $selected 'ddraw.ini'))) {
+        $problems.Add("'ddraw.ini' was not found — sfall does not appear to be installed.")
+    }
     if (-not (Test-Path (Join-Path $selected 'mods' 'rpu.ini'))) {
         $problems.Add("'mods\rpu.ini' was not found — RPU does not appear to be installed.")
     }
@@ -166,7 +169,65 @@ foreach ($lang in $langDirs) {
 }
 
 # ---------------------------------------------------------------------------
-# Done
+# Done — Verification & final messages
 # ---------------------------------------------------------------------------
 Write-Host ''
-Write-Host 'Patch installed successfully!' -ForegroundColor Green
+Write-Host 'Files copied successfully.' -ForegroundColor Green
+
+# --- Verify ddraw.ini UseFileSystemOverride setting ---
+$ddrawIni = Join-Path $gameDir 'ddraw.ini'
+$ddrawWarning = $false
+$ddrawContent = Get-Content $ddrawIni -Raw
+
+# Match UseFileSystemOverride under [Misc] section
+if ($ddrawContent -match '(?ms)^\[Misc\].*?(?=^\[|\z)') {
+    $miscSection = $Matches[0]
+    if ($miscSection -match '(?m)^\s*UseFileSystemOverride\s*=\s*(\d+)') {
+        if ($Matches[1] -ne '1') {
+            $ddrawWarning = $true
+            Write-Host "WARNING: ddraw.ini [Misc] UseFileSystemOverride=$($Matches[1]) — it must be set to 1 for the patch to work." -ForegroundColor Red
+        }
+        else {
+            Write-Host "Verified: ddraw.ini [Misc] UseFileSystemOverride=1 (OK)"
+        }
+    }
+    else {
+        $ddrawWarning = $true
+        Write-Host "WARNING: ddraw.ini [Misc] section exists but UseFileSystemOverride is not defined. It must be set to 1." -ForegroundColor Red
+    }
+}
+else {
+    $ddrawWarning = $true
+    Write-Host "WARNING: ddraw.ini does not contain a [Misc] section. UseFileSystemOverride=1 must be present under [Misc]." -ForegroundColor Red
+}
+
+if ($ddrawWarning) {
+    [System.Windows.Forms.MessageBox]::Show(
+        "Your ddraw.ini file needs attention!`n`nOpen:`n$ddrawIni`n`nand make sure the following setting exists under the [Misc] section:`n`nUseFileSystemOverride=1`n`nWithout this, the game will not load the patched scripts.",
+        'ddraw.ini — Action Required',
+        [System.Windows.Forms.MessageBoxButtons]::OK,
+        [System.Windows.Forms.MessageBoxIcon]::Warning
+    ) | Out-Null
+}
+
+# --- Final success message ---
+$rpuIni = Join-Path $gameDir 'mods' 'rpu.ini'
+$successMsg = "Miria Can Wait patch installed successfully!`n`nTo enable the Miria waiting feature, edit:`n$rpuIni`n`nand add the following line at the end:`n`nmiria_can_wait=1"
+
+Write-Host ''
+Write-Host '---------------------------------------------------------------' -ForegroundColor Cyan
+Write-Host 'INSTALLATION COMPLETE' -ForegroundColor Green
+Write-Host ''
+Write-Host "To enable the Miria waiting feature, edit:" -ForegroundColor Yellow
+Write-Host "  $rpuIni" -ForegroundColor Yellow
+Write-Host ''
+Write-Host "and add the following line at the end:" -ForegroundColor Yellow
+Write-Host "  miria_can_wait=1" -ForegroundColor Yellow
+Write-Host '---------------------------------------------------------------' -ForegroundColor Cyan
+
+[System.Windows.Forms.MessageBox]::Show(
+    $successMsg,
+    'Installation Complete',
+    [System.Windows.Forms.MessageBoxButtons]::OK,
+    [System.Windows.Forms.MessageBoxIcon]::Information
+) | Out-Null
