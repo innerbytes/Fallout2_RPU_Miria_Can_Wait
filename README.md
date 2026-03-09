@@ -27,7 +27,7 @@ This prevents Miria to be killed in hard battles. This patch does not extend any
       - `cd c:\Projects`
       - `git clone https://github.com/innerbytes/Fallout2_RPU_Miria_Can_Wait.git`
 
-3. In PowerShell 7, change to the patch directory and rub `build.ps1`:
+3. In PowerShell 7, change to the patch directory and run `build.ps1`:
 ```powershell
 cd c:\Projects\Fallout2_RPU_Miria_Can_Wait
 .\build.ps1
